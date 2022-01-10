@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="secutityApp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>secutityApp</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="secutityApp-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="secutityApp:war exploded" />
+    </root>
+  </artifact>
+</component>

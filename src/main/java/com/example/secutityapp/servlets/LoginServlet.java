@@ -2,6 +2,10 @@ package com.example.secutityapp.servlets;
 
 import com.example.secutityapp.Entity.User;
 import com.example.secutityapp.UserRepositoryImpl;
+import com.example.secutityapp.config.SecurityConfig;
+import com.example.secutityapp.service.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.io.*;
 import javax.servlet.http.*;
@@ -11,7 +15,10 @@ import static java.util.Objects.hash;
 
 @WebServlet(name = "login", value = "/login")
 public class LoginServlet extends HttpServlet {
-    private UserRepositoryImpl repository = new UserRepositoryImpl();
+    //private UserRepositoryImpl repository = new UserRepositoryImpl();
+    @Autowired
+    SecurityConfig config;
+    UserDetailsService userDetailsService = config.userDetailsService();
 
     public void init() {
 
@@ -22,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         user.setName(request.getParameter("name"));
         user.setEmail(request.getParameter("email"));
         user.setId(hash(user) / 13);
-        if (repository.findByEmail(user)){
+        if (userDetailsService.loadUserByUsername(user.getEmail())!=null){
             response.sendRedirect("resources");//poka chto
         }
 

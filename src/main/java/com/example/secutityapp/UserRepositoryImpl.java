@@ -1,6 +1,7 @@
 package com.example.secutityapp;
 
 import com.example.secutityapp.Entity.User;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class UserRepositoryImpl implements UserRepository {
     private DBWorker dbWorker = new DBWorker();
     @Override
@@ -34,21 +35,25 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public boolean findByEmail(User user) {
+    public User findByEmail(String email) {
         String query = "select * from users";
 
         try {
             Statement statement = dbWorker.getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
-                if(resultSet.getString(3).equals(user.getEmail())){
-                    return true;
+                if(resultSet.getString(3).equals(email)){
+                    User user = new User();
+                    user.setId(resultSet.getInt(1));
+                    user.setName(resultSet.getString(2));
+                    user.setEmail(resultSet.getString(3));
+                    return user;
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return null;
     }
 
     @Override

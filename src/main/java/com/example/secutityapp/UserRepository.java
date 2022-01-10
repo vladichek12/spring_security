@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserRepository{
     List<User> findAll();
-    boolean findByEmail(User user);
+    User findByEmail(String email);
     void save(User user);
 
 }

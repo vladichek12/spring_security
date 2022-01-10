@@ -2,6 +2,8 @@ package com.example.secutityapp.servlets;
 
 import com.example.secutityapp.Entity.User;
 import com.example.secutityapp.UserRepositoryImpl;
+import com.example.secutityapp.service.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +16,9 @@ import static java.util.Objects.hash;
 
 @WebServlet(name = "registration", value = "/registration")
 public class RegistrationServlet extends HttpServlet {
-    private UserRepositoryImpl repository = new UserRepositoryImpl();
+    //private UserRepositoryImpl repository = new UserRepositoryImpl();
+    @Autowired
+    UserDetailsServiceImpl userDetailsService;
 
     public void init() {
 
@@ -25,7 +29,8 @@ public class RegistrationServlet extends HttpServlet {
         user.setName(request.getParameter("name"));
         user.setEmail(request.getParameter("email"));
         user.setId(hash(user)/13);
-        repository.save(user);
+        //repository.save(user);
+        userDetailsService.saveUser(user);
         response.sendRedirect("login.jsp");//poka chto
     }
 

@@ -1,13 +1,9 @@
 package com.example.secutityapp.servlets;
 
 import com.example.secutityapp.Entity.User;
-import com.example.secutityapp.UserRepositoryImpl;
-import com.example.secutityapp.config.SecurityConfig;
 import com.example.secutityapp.service.UserDetailsServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.io.*;
 import java.util.ArrayList;

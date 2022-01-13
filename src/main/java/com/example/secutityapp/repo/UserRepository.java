@@ -1,4 +1,4 @@
-package com.example.secutityapp;
+package com.example.secutityapp.repo;
 
 import com.example.secutityapp.Entity.User;
 

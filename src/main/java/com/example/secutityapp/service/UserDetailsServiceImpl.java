@@ -1,8 +1,7 @@
 package com.example.secutityapp.service;
 
 import com.example.secutityapp.Entity.User;
-import com.example.secutityapp.UserRepositoryImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.secutityapp.repo.UserRepositoryImpl;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

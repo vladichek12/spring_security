@@ -1,16 +1,13 @@
 package com.example.secutityapp.servlets;
 
 import com.example.secutityapp.Entity.User;
-import com.example.secutityapp.UserRepositoryImpl;
 import com.example.secutityapp.service.UserDetailsServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import static java.util.Objects.hash;
 

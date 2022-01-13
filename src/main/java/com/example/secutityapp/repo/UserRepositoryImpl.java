@@ -1,6 +1,8 @@
-package com.example.secutityapp;
+package com.example.secutityapp.repo;
 
+import com.example.secutityapp.DBWorker;
 import com.example.secutityapp.Entity.User;
+import com.example.secutityapp.repo.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;

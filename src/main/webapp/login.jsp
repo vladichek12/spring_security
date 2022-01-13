@@ -6,10 +6,10 @@
 </head>
 <body>
 <form method="post" action="login">
-    name:
+    <p>name:</p>
     <input name="name" type="text">
     <br>
-    email:
+    <p>email:</p>
     <input name="email" type="text">
     <br>
     <input type="submit">

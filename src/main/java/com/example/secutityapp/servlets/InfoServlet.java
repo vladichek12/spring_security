@@ -16,11 +16,10 @@ import java.util.List;
 
 import static java.util.Objects.hash;
 
-@WebServlet(name = "resources", value = "/resources")
-public class ResourcesServlet extends HttpServlet {
+@WebServlet(name = "info", value = "/info")
+public class InfoServlet extends HttpServlet {
     //private UserRepositoryImpl repository = new UserRepositoryImpl();
-    @Autowired
-    UserDetailsServiceImpl userDetailsService;
+    UserDetailsServiceImpl userDetailsService = new UserDetailsServiceImpl();
 
     public void init() {
 
@@ -29,8 +28,8 @@ public class ResourcesServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         List<User> users = new ArrayList<>();
         users = userDetailsService.findAll();
-       request.setAttribute("users",users);
-        request.getServletContext().getRequestDispatcher("/resources.jsp").forward(request,response);
+        request.setAttribute("users",users);
+        request.getServletContext().getRequestDispatcher("/info.jsp").forward(request,response);
 
     }
 

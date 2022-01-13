@@ -10,19 +10,19 @@
 <head>
     <title>Title</title>
 </head>
+
+<body>
 <P>REGISTRATION</P>
 <form method="post" action="registration">
-    name:
+    <p>name:</p>
     <input name="name" type="text">
     <br>
-    email:
+    <p>email:</p>
     <input name="email" type="text">
     <br>
     <input type="submit">
 </form>
 
 <a href="login.jsp">login</a>
-<body>
-
 </body>
 </html>

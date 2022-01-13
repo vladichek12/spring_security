@@ -17,8 +17,7 @@ import static java.util.Objects.hash;
 @WebServlet(name = "registration", value = "/registration")
 public class RegistrationServlet extends HttpServlet {
     //private UserRepositoryImpl repository = new UserRepositoryImpl();
-    @Autowired
-    UserDetailsServiceImpl userDetailsService;
+    UserDetailsServiceImpl userDetailsService = new UserDetailsServiceImpl();
 
     public void init() {
 

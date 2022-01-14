@@ -3,6 +3,7 @@ package com.example.secutityapp.repo;
 import com.example.secutityapp.DBWorker;
 import com.example.secutityapp.Entity.User;
 import com.example.secutityapp.repo.UserRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
@@ -15,6 +16,7 @@ import java.util.List;
 public class UserRepositoryImpl implements UserRepository {
     private DBWorker dbWorker = new DBWorker();
     @Override
+
     public List<User> findAll() {
         String query = "select * from users";
         List<User> users = new ArrayList<>();
@@ -35,6 +37,7 @@ public class UserRepositoryImpl implements UserRepository {
 
         return users;
     }
+
 
     @Override
     public User findByEmail(String email) {
